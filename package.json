@@ -1,0 +1,31 @@
+{
+  "name": "flash-card-app",
+  "version": "1.0.0",
+  "description": "a flash card app",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spector-asael/flash-card-app.git"
+  },
+  "author": "Asael Tobar & Jose Teck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spector-asael/flash-card-app/issues"
+  },
+  "homepage": "https://github.com/spector-asael/flash-card-app#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-layouts": "^1.0.0",
+    "pg": "^8.14.1"
+  }
+}
