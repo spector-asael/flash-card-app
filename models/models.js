@@ -7,3 +7,14 @@ export const addCard = async (front, back) => {
     );
     return result.rows[0];
 };
+
+export const getAllFlashCards = async () => {
+    try {
+        const result = await pool.query("SELECT * FROM cards");
+        return result.rows;
+
+    } catch (error) {
+      console.error("Database query error:", error);
+      throw error;
+    }
+  }

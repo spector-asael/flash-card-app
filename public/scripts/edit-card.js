@@ -1,4 +1,4 @@
-const cards = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".edit-card");
 const leftArrow = document.querySelector(".left-arrow");
 const rightArrow = document.querySelector(".right-arrow");
 const counter = document.querySelector(".arrows h2");
@@ -8,7 +8,7 @@ let currentIndex = 0;
 // Hide all cards except the current one
 function updateCards() {
   cards.forEach((card, index) => {
-    card.style.display = index === currentIndex ? "block" : "none";
+    card.style.display = index === currentIndex ? "flex" : "none";
     // Reset flipped state when switching cards
     card.classList.remove("flipped");
   });

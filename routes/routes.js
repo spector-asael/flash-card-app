@@ -1,10 +1,12 @@
 import express from 'express';
-import { renderLanding, renderHome } from '../controllers/controllers.js';
+import { renderHome, renderForm, renderEdit } from '../controllers/controllers.js';
 
 const router = express();
 
-router.get('/', renderLanding);
+router.get('/', renderHome);
 
-router.get('/home', renderHome);
+router.get('/form',renderForm);
+
+router.get('/edit', renderEdit);
 
 export {router};

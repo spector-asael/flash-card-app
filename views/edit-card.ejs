@@ -1,0 +1,33 @@
+
+<div class="hero-title">
+    <h2>Flash Card App</h2>
+</div>
+
+
+<div class="edit-card-container">
+<% cards.forEach(function(card) { %>
+  <div class="edit-card">
+    
+    <div class="edit-front">
+    <h2> <%= card.front_text %> </h2>
+    </div>
+   
+    <div class="edit-back">
+    <h2> <%= card.back_text %> </h2>
+    </div>
+  </div>
+<% }); %>
+</div>
+<div class="flash-card-actions">
+<button class="edit-button">Edit</button>
+<button class="delete-button">Delete</button>
+</div>
+<div class="arrows">
+<button class="left-arrow"><span>&#x2190;</span></button>
+<h2>1/<%= cards.length %></h2>
+<button class="right-arrow"><span>&#x2192;</span></button>
+</div>
+
+</div>
+
+<script src="/scripts/edit-card.js"></script>
