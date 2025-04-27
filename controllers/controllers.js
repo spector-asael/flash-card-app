@@ -14,6 +14,7 @@ export const renderForm = (req, res) => {
     res.render("form");
 }
 
+
 export const renderEdit = async (req, res) => {
     try {
         const cards = await getAllFlashCards();
@@ -23,3 +24,4 @@ export const renderEdit = async (req, res) => {
         res.status(500).send("Internal Server Error");
       }
 }
+
