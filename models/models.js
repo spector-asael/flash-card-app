@@ -6,6 +6,7 @@ export const addCard = async (front, back) => {
         [front, back]
     );
     return result.rows[0];
+
 };
 
 export const getAllFlashCards = async () => {
@@ -18,3 +19,6 @@ export const getAllFlashCards = async () => {
       throw error;
     }
   }
+
+};
+
