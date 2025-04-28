@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Card</title>
+</head>
+<body>
+
+    <div class="hero-title">
+        <h2>Edit Card</h2>
+    </div>
+
+    <!-- Error message container -->
+    <div id="error-message" style="color: red; margin-bottom: 1em;"></div>
+
+    <form id="edit-card-form" class="card-form">
+        <div class="inner-form">
+            <div class="inner-inner-form">
+                <label for="front">Front View</label>
+                <textarea id="front" name="front"><%= card.front_text %></textarea>
+            </div>
+
+            <div class="inner-inner-form">
+                <label for="back">Back View</label>
+                <textarea id="back" name="back"><%= card.back_text %></textarea>
+            </div>
+        </div>
+
+        <button type="submit">Edit Card</button>
+    </form>
+
+    <script src="/scripts/updatecard.js"></script>
+</body>
+</html>

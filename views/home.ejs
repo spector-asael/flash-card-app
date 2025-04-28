@@ -1,20 +1,31 @@
 <div class="hero-title">
-  <h2> Flash Card App </h2>
+  <h2>Flash Card App</h2>
 </div>
-<div id="card-container"> 
-  <div id="card">
-    <div class="back">
-      Back of the card
+
+<% if (cards.length > 0) { %>
+  <!-- Normal card UI goes here -->
+
+<div class="card-container">
+  <% cards.forEach(function(card) { %>
+    <div class="card">
+      <div class="front">
+        <h2> <%= card.front_text %> </h2>
+      </div>
+      <div class="back">
+        <h2> <%= card.back_text %> </h2>
+      </div>
     </div>
-    <div class="front">
-      Front of the card
-    </div>
-  </div> 
+  <% }); %>
+</div>
+
+<div class="arrows">
+  <button class="left-arrow"><span>&#x2190;</span></button>
+  <h2>1/<%= cards.length %></h2>
+  <button class="right-arrow"><span>&#x2192;</span></button>
+</div>
+<% } else { %>
+  <div class="no-cards-message">
+    <h2>No cards to display.</h2>
   </div>
-  <div class="arrows">
-      <button id="left-arrow">&#x2190;</button>
-      <h2>1/10</h2>
-      <button id="right-arrow">&#x2192;</button>
-    </div>
-  </div>
-  <script src="/scripts/home.js"> </script>
+<% } %>
+<script src="/scripts/home.js"></script>
