@@ -4,7 +4,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 0.5fr 5fr 1fr;
   min-height: 97VH;
   color: white;
   flex-direction: column;
@@ -236,14 +236,24 @@ display: flex;
 align-items: center;
 justify-content: center;
 }
+.card-table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+  color: #eaffff;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+}
 
-.edit-card {
-position: relative;
-color: #eaffff;
-width: 50vw;
-height: 40vh;
-display: flex;
-gap: 50px;
+.card-table th,
+.card-table td {
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(13, 0, 255, 0.2), rgba(0, 123, 255, 0.2));
+  border-radius: 8px;
+}
+td button{
+  color: white;
 }
 
 .edit-front, .edit-back {
