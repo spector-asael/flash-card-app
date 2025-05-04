@@ -2,14 +2,21 @@ body {
   background: linear-gradient(135deg, #1c1c1c, #000000, #1c1c1c);
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 5fr 1fr;
   min-height: 97VH;
   color: white;
   flex-direction: column;
 }
-
+.grid{
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* ======= LANDING PAGE STYLES ======= */
 
 .navbar {
@@ -63,6 +70,9 @@ background-color: #777;
 /* ======= HOMEPAGE CARD STYLES ======= */
 .card-container {
 perspective: 1000px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .card {
@@ -222,6 +232,9 @@ background: linear-gradient(135deg, #006622, #00cc44);
 /* ======= EDIT CARDS ======= */
 .edit-card-container {
 perspective: 1000px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .edit-card {
