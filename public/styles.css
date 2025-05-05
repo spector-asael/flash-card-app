@@ -199,6 +199,12 @@ display: none;
   display: flex;
   gap: 50px;
 }
+
+textarea.error {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+  box-shadow: 0 0 20px rgba(255, 51, 0, 0.534);;
+}
 /* Different background for front/back for visual distinction */
 .front {
 background: linear-gradient(135deg, #003366, #005580);

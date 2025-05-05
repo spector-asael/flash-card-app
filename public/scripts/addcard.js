@@ -4,32 +4,41 @@ document.querySelector(".card-form").addEventListener("submit", async function(e
     const errorMessage = document.getElementById("error-message");
     errorMessage.textContent = ""; // Clear previous errors
 
-    const frontText = document.getElementById("front").value.trim();
-    const backText = document.getElementById("back").value.trim();
+    const frontTextarea = document.getElementById("front");
+    const backTextarea = document.getElementById("back");
 
-    // Client-side validation
+    const frontText = frontTextarea.value.trim();
+    const backText = backTextarea.value.trim();
+
+    // Reset error styles
+    frontTextarea.classList.remove("error");
+    backTextarea.classList.remove("error");
+
+    let hasError = false;
+
     if (!frontText || !backText) {
         errorMessage.style.color = "#ff7733";
         errorMessage.textContent = "Front and Back text cannot be empty.";
+        if (!frontText) frontTextarea.classList.add("error");
+        if (!backText) backTextarea.classList.add("error");
+        front.focus();
         return;
     }
 
     if (frontText.length > 500 || backText.length > 500) {
         errorMessage.style.color = "#ff7733";
         errorMessage.textContent = "Each field must be under 500 characters.";
+        if (frontText.length > 500) frontTextarea.classList.add("error");
+        if (backText.length > 500) backTextarea.classList.add("error");
+        front.focus()
         return;
     }
 
     try {
         const response = await fetch("/api/addCard", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                front: frontText,
-                back: backText
-            })
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ front: frontText, back: backText })
         });
 
         const data = await response.json();
@@ -38,13 +47,9 @@ document.querySelector(".card-form").addEventListener("submit", async function(e
             throw new Error(data.error || "Unknown server error");
         }
 
-        console.log("Card added successfully:", data);
-
-        // Success feedback: optionally clear form and show success message
         document.querySelector(".card-form").reset();
         errorMessage.style.color = "#b8ff33";
         errorMessage.textContent = "Card added successfully!";
-
     } catch (error) {
         console.error("Error adding card:", error);
         errorMessage.style.color = "#ff7733";
