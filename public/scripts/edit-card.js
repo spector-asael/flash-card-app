@@ -25,9 +25,6 @@ function customConfirm(message) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".edit-card");
-  const leftArrow = document.querySelector(".left-arrow");
-  const rightArrow = document.querySelector(".right-arrow");
-  const counter = document.querySelector(".arrows h2");
   const errorMessageContainer = document.getElementById("delete-error-message");
 
   let currentIndex = 0;
@@ -49,19 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  leftArrow?.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCards();
-    }
-  });
-
-  rightArrow?.addEventListener("click", () => {
-    if (currentIndex < cards.length - 1) {
-      currentIndex++;
-      updateCards();
-    }
-  });
 
   // Attach edit button handlers
   document.querySelectorAll('.edit-button').forEach((button) => {
