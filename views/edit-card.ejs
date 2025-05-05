@@ -1,46 +1,53 @@
-<div class="hero-title">
-  <h2>Flash Card App</h2>
-</div>
+<div class="grid">
+  <div class="hero-title">
+    <h2>Flash Card App</h2>
+  </div>
 
-<% if (cards.length > 0) { %>
-<div class="edit-card-container">
-  <% cards.forEach(function(card) { %>
-      <div class="edit-card" data-id="<%= card.card_id %>">
-          <div class="edit-front">
-              <h2><%= card.front_text %></h2>
-          </div>
-          <div class="edit-back">
-              <h2><%= card.back_text %></h2>
-          </div>
+  <% if (cards.length > 0) { %>
+          <table class="card-table">
+            <thead>
+              <tr>
+          
+                <th>Front</th>
+                <th>Back</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% cards.forEach(function(card) { %>
+                <tr data-id="<%= card.card_id %>">
+                  <td><%= card.front_text %></td>
+                  <td><%= card.back_text %></td>
+                  <td>
+                    <button class="edit-button" data-id="<%= card.card_id %>">Edit</button>
+                  </td>
+                  <td>
+                    <button class="delete-button" data-id="<%= card.card_id %>">Delete</button>
+                  </td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>          
+      </tbody>
+    </table>
+
+    <div id="delete-error-message" style="display:none; color: red;"></div>
+
+    <script src="/scripts/edit-card.js"></script>
+
+    <div id="custom-confirm" class="confirm-modal" style="display: none;">
+      <div class="confirm-content">
+        <p id="confirm-message">Are you sure?</p>
+        <div class="confirm-buttons">
+          <button id="confirm-yes">Yes</button>
+          <button id="confirm-no">No</button>
+        </div>
       </div>
-  <% }); %>
-</div>
-
-<div class="flash-card-actions">
-  <button class="edit-button">Edit</button>
-  <button class="delete-button">Delete</button>
-</div>
-
-<div class="arrows">
-  <button class="left-arrow"><span>&#x2190;</span></button>
-  <h2>1/<%= cards.length %></h2>
-  <button class="right-arrow"><span>&#x2192;</span></button>
-</div>
-
-<div id="delete-error-message" style="display:none; color: red;"></div>
-
-<script src="/scripts/edit-card.js"></script>
-<div id="custom-confirm" class="confirm-modal" style="display: none;">
-  <div class="confirm-content">
-    <p id="confirm-message">Are you sure?</p>
-    <div class="confirm-buttons">
-      <button id="confirm-yes">Yes</button>
-      <button id="confirm-no">No</button>
     </div>
-  </div>
+  <% } else { %>
+    <div class="no-cards-message">
+      <h2>No cards to display.</h2>
+    </div>
+  <% } %>
 </div>
-<% } else { %>
-  <div class="no-cards-message">
-    <h2>No cards to display.</h2>
-  </div>
-<% } %>
